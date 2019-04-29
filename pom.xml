@@ -12,7 +12,6 @@
   </modules>
   <packaging>pom</packaging>
 
-  <name>Maven Portlet Archetype</name>
   <url>http://www.example.com</url>
 
   <parent>
