@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <property name="LOG_PATH">./logs</property>
+        <property name="LOG_FILE">hello</property>
+        <Property name="log_pattern_1">%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Property>
+        <Property name="log_pattern_2">%-d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] - %m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${log_pattern_2}"/>
+        </Console>
+        <RollingFile name="errorlogfile" fileName="${LOG_PATH}/${LOG_FILE}.log"
+                     filePattern="${LOG_PATH}/$${date:yyyy-MM}/${LOG_FILE}-%d{yyyy-MM-dd HH-mm}-%i.log">
+            <PatternLayout pattern="${log_pattern_2}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+        <RandomAccessFile name="info" fileName="${LOG_PATH}/info.log" immediateFlush="true" append="true">
+            <PatternLayout pattern="${log_pattern_1}"/>
+        </RandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <root level="info">
+            <AppenderRef ref="Console"/>
+            <!--<AppenderRef ref="errorlogfile"/>-->
+            <appender-ref ref="info"/>
+        </root>
+        <!--<AsyncRoot level="info" additivity="false">-->
+            <!--<appender-ref ref="info"/>-->
+        <!--</AsyncRoot>-->
+    </Loggers>
+</Configuration>
