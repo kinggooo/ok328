@@ -12,6 +12,7 @@ import srv.vo.LoginInfoVo;
 import javax.validation.Valid;
 
 @RestController
+@RequestMapping("/api/v1")
 public class LoginController {
     private static Logger log = LoggerFactory.getLogger(LoginController.class);
 
@@ -21,8 +22,7 @@ public class LoginController {
      * 在逻辑处理中我们判断BindingResult知否含有错误信息，如果有错误信息，则直接返回错误信息。
      */
     @CrossOrigin
-    @RequestMapping(value = "/api/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @ResponseBody
+    @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Result login(@Valid @RequestBody LoginInfoVo loginInfoVo, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             String message = String.format("登陆失败，详细信息[%s]。", bindingResult.getFieldError().getDefaultMessage());
