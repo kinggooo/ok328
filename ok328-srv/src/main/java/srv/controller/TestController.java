@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.*;
 import srv.common.Result;
 import srv.common.ResultFactory;
-import srv.vo.User;
+import srv.vo.UserInfo;
 
 import java.util.Date;
 
@@ -31,9 +31,17 @@ public class TestController {
 
     @RequestMapping(value = "/addUser", method = RequestMethod.GET)
     @ResponseBody
-    public Result addUser(@RequestBody User user) {
-        user.setCreateTime(new Date());
-        mongoTemplate.insert(user);
-        return ResultFactory.buildSuccessResult(user);
+    public Result addUser(@RequestBody UserInfo userInfo) {
+        userInfo.setCreateTime(new Date());
+        mongoTemplate.insert(userInfo);
+        return ResultFactory.buildSuccessResult(userInfo);
+    }
+
+    @RequestMapping(value = "/saveUser", method = RequestMethod.GET)
+    @ResponseBody
+    public Result saveUser(@RequestBody UserInfo userInfo) {
+        userInfo.setCreateTime(new Date());
+        mongoTemplate.save(userInfo);
+        return ResultFactory.buildSuccessResult(userInfo);
     }
 }

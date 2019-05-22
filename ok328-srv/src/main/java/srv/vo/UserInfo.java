@@ -2,7 +2,7 @@ package srv.vo;
 
 import java.util.Date;
 
-public class User {
+public class UserInfo {
     private String id;
     private String name;
     private Date createTime;
