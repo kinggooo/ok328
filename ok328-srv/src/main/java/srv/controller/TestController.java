@@ -9,6 +9,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import srv.common.Result;
 import srv.common.ResultFactory;
@@ -30,6 +31,9 @@ public class TestController {
 
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
     @RequestMapping(value = "/test1", method = RequestMethod.GET)
     @ResponseBody
@@ -84,5 +88,12 @@ public class TestController {
         Criteria ct = where("id").in(id);
         DeleteResult result = mongoTemplate.remove(query(ct), UserInfo.class);
         return ResultFactory.buildSuccessResult(result.getDeletedCount());
+    }
+
+    @RequestMapping(value = "/rdsSet/{key}/{val}", method = RequestMethod.GET)
+    @ResponseBody
+    public Result rdsSet(@PathVariable String key, @PathVariable String val) {
+        redisTemplate.opsForValue().set(key, val);
+        return ResultFactory.buildSuccessResult(redisTemplate.opsForValue().get(key));
     }
 }
