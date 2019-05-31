@@ -13,6 +13,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import srv.common.Result;
 import srv.common.ResultFactory;
+import srv.service.TestService;
+import srv.service.impl.TestServiceImpl;
 import srv.vo.UserInfo;
 
 import java.util.Date;
@@ -34,6 +36,23 @@ public class TestController {
 
     @Autowired
     private StringRedisTemplate redisTemplate;
+
+    @Autowired
+    private TestService testServiceImpl;
+
+    @RequestMapping(value = "/getUser/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Result getUser(@PathVariable String id) {
+        UserInfo user = testServiceImpl.getUser(id);
+        return ResultFactory.buildSuccessResult(user);
+    }
+
+    @RequestMapping(value = "/evictUser/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Result evictUser(@PathVariable String id) {
+        testServiceImpl.evictUser(id);
+        return ResultFactory.buildSuccessResult(null);
+    }
 
     @RequestMapping(value = "/test1", method = RequestMethod.GET)
     @ResponseBody
