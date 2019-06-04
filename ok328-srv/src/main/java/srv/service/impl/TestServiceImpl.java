@@ -3,6 +3,7 @@ package srv.service.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import srv.service.TestService;
@@ -26,8 +27,11 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public UserInfo updateUser() {
-        return null;
+    @CachePut(cacheNames = "user", key = "#user.id")
+    public UserInfo updateUser(UserInfo user) {
+        log.info("更新用户：{}", user.getId());
+        user.setCreateTime(new Date());
+        return user;
     }
 
     @Override

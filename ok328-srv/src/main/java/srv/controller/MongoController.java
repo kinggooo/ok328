@@ -9,12 +9,9 @@ import org.springframework.core.env.Environment;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import srv.common.Result;
 import srv.common.ResultFactory;
-import srv.service.TestService;
-import srv.service.impl.TestServiceImpl;
 import srv.vo.UserInfo;
 
 import java.util.Date;
@@ -24,35 +21,15 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
 @RestController
-@RequestMapping(value = "/test")
-public class TestController {
-    private static Logger log = LoggerFactory.getLogger(TestController.class);
+@RequestMapping(value = "/mongo")
+public class MongoController {
+    private static Logger log = LoggerFactory.getLogger(MongoController.class);
 
     @Autowired
     private Environment env;// 读取环境变量
 
     @Autowired
     private MongoTemplate mongoTemplate;
-
-    @Autowired
-    private StringRedisTemplate redisTemplate;
-
-    @Autowired
-    private TestService testServiceImpl;
-
-    @RequestMapping(value = "/getUser/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public Result getUser(@PathVariable String id) {
-        UserInfo user = testServiceImpl.getUser(id);
-        return ResultFactory.buildSuccessResult(user);
-    }
-
-    @RequestMapping(value = "/evictUser/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public Result evictUser(@PathVariable String id) {
-        testServiceImpl.evictUser(id);
-        return ResultFactory.buildSuccessResult(null);
-    }
 
     @RequestMapping(value = "/test1", method = RequestMethod.GET)
     @ResponseBody
@@ -107,12 +84,5 @@ public class TestController {
         Criteria ct = where("id").in(id);
         DeleteResult result = mongoTemplate.remove(query(ct), UserInfo.class);
         return ResultFactory.buildSuccessResult(result.getDeletedCount());
-    }
-
-    @RequestMapping(value = "/rdsSet/{key}/{val}", method = RequestMethod.GET)
-    @ResponseBody
-    public Result rdsSet(@PathVariable String key, @PathVariable String val) {
-        redisTemplate.opsForValue().set(key, val);
-        return ResultFactory.buildSuccessResult(redisTemplate.opsForValue().get(key));
     }
 }
