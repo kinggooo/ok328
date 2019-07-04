@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.ok328.www.srv.mapper.LoanApplyInfoMapper">
+    <resultMap id="LoanApplyInfoMap" type="club.ok328.www.srv.entity.LoanApplyInfo">
+        <id column="APPLY_NO" jdbcType="VARCHAR" property="applyNo"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="PID" jdbcType="VARCHAR" property="pid"/>
+        <result column="MOBILE" jdbcType="VARCHAR" property="mobile"/>
+        <result column="QUERY_REASON" jdbcType="VARCHAR" property="queryReason"/>
+        <result column="GUARANTEE_TYPE" jdbcType="VARCHAR" property="guaranteeType"/>
+        <result column="LOAN_PURPOSE" jdbcType="VARCHAR" property="loanPurpose"/>
+        <result column="CUSTOMER_TYPE" jdbcType="VARCHAR" property="customerType"/>
+        <result column="APPLY_AMOUNT" jdbcType="DECIMAL" property="applyAmount"/>
+        <result column="LOAN_ID" jdbcType="VARCHAR" property="loanId"/>
+        <result column="HOME_ADDRESS" jdbcType="VARCHAR" property="homeAddress"/>
+        <result column="HOME_PUHONE" jdbcType="VARCHAR" property="homePuhone"/>
+        <result column="WORK_NAME" jdbcType="VARCHAR" property="workName"/>
+        <result column="WORK_ADDRESS" jdbcType="VARCHAR" property="workAddress"/>
+        <result column="WORK_PHONE" jdbcType="VARCHAR" property="workPhone"/>
+        <result column="DEVICE_TYPE" jdbcType="VARCHAR" property="deviceType"/>
+        <result column="IMEI" jdbcType="VARCHAR" property="imei"/>
+        <result column="MAC" jdbcType="VARCHAR" property="mac"/>
+        <result column="IP_ADDRESS" jdbcType="VARCHAR" property="ipAddress"/>
+        <result column="OS_NAME" jdbcType="VARCHAR" property="osName"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        APPLY_NO, NAME, PID, MOBILE, QUERY_REASON, GUARANTEE_TYPE, LOAN_PURPOSE, CUSTOMER_TYPE,
+        APPLY_AMOUNT, LOAN_ID, HOME_ADDRESS, HOME_PUHONE, WORK_NAME, WORK_ADDRESS, WORK_PHONE,
+        DEVICE_TYPE, IMEI, MAC, IP_ADDRESS, OS_NAME
+    </sql>
+    <select id="selectByCond" resultMap="LoanApplyInfoMap">
+        select
+        <include refid="Base_Column_List"/>
+        from BH_LOAN_APPLY_INFO
+    </select>
+    <select id="selectByPrimaryKey" resultMap="LoanApplyInfoMap">
+        select
+        <include refid="Base_Column_List"/>
+        from BH_LOAN_APPLY_INFO
+        where APPLY_NO = #{applyNo,jdbcType=OTHER}
+    </select>
+    <delete id="deleteByPrimaryKey">
+        delete from BH_LOAN_APPLY_INFO
+        where APPLY_NO = #{applyNo,jdbcType=OTHER}
+    </delete>
+    <insert id="insert" parameterType="club.ok328.www.srv.entity.LoanApplyInfo">
+        insert into BH_LOAN_APPLY_INFO (APPLY_NO, NAME, PID,
+        MOBILE, QUERY_REASON, GUARANTEE_Type,
+        LOAN_PURPOSE, CUSTOMER_TYPE, APPLY_AMOUNT,
+        LOAN_ID, HOME_ADDRESS, HOME_PUHONE,
+        WORK_NAME, WORK_ADDRESS, WORK_PHONE,
+        DEVICE_TYPE, IMEI, MAC,
+        IP_ADDRESS, OS_NAME)
+        values (#{applyNo,jdbcType=OTHER}, #{name,jdbcType=OTHER}, #{pid,jdbcType=OTHER},
+        #{mobile,jdbcType=OTHER}, #{queryReason,jdbcType=VARCHAR}, #{guaranteeType,jdbcType=VARCHAR},
+        #{loanPurpose,jdbcType=VARCHAR}, #{customerType,jdbcType=VARCHAR}, #{applyAmount,jdbcType=DECIMAL},
+        #{loanId,jdbcType=OTHER}, #{homeAddress,jdbcType=OTHER}, #{homePuhone,jdbcType=OTHER},
+        #{workName,jdbcType=OTHER}, #{workAddress,jdbcType=OTHER}, #{workPhone,jdbcType=OTHER},
+        #{deviceType,jdbcType=VARCHAR}, #{imei,jdbcType=OTHER}, #{mac,jdbcType=OTHER},
+        #{ipAddress,jdbcType=OTHER}, #{osName,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="club.ok328.www.srv.entity.LoanApplyInfo">
+        insert into BH_LOAN_APPLY_INFO
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="applyNo != null">
+                APPLY_NO,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="pid != null">
+                PID,
+            </if>
+            <if test="mobile != null">
+                MOBILE,
+            </if>
+            <if test="queryReason != null">
+                QUERY_REASON,
+            </if>
+            <if test="guaranteeType != null">
+                GUARANTEE_Type,
+            </if>
+            <if test="loanPurpose != null">
+                LOAN_PURPOSE,
+            </if>
+            <if test="customerType != null">
+                CUSTOMER_TYPE,
+            </if>
+            <if test="applyAmount != null">
+                APPLY_AMOUNT,
+            </if>
+            <if test="loanId != null">
+                LOAN_ID,
+            </if>
+            <if test="homeAddress != null">
+                HOME_ADDRESS,
+            </if>
+            <if test="homePuhone != null">
+                HOME_PUHONE,
+            </if>
+            <if test="workName != null">
+                WORK_NAME,
+            </if>
+            <if test="workAddress != null">
+                WORK_ADDRESS,
+            </if>
+            <if test="workPhone != null">
+                WORK_PHONE,
+            </if>
+            <if test="deviceType != null">
+                DEVICE_TYPE,
+            </if>
+            <if test="imei != null">
+                IMEI,
+            </if>
+            <if test="mac != null">
+                MAC,
+            </if>
+            <if test="ipAddress != null">
+                IP_ADDRESS,
+            </if>
+            <if test="osName != null">
+                OS_NAME,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="applyNo != null">
+                #{applyNo,jdbcType=OTHER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=OTHER},
+            </if>
+            <if test="pid != null">
+                #{pid,jdbcType=OTHER},
+            </if>
+            <if test="mobile != null">
+                #{mobile,jdbcType=OTHER},
+            </if>
+            <if test="queryReason != null">
+                #{queryReason,jdbcType=VARCHAR},
+            </if>
+            <if test="guaranteeType != null">
+                #{guaranteeType,jdbcType=VARCHAR},
+            </if>
+            <if test="loanPurpose != null">
+                #{loanPurpose,jdbcType=VARCHAR},
+            </if>
+            <if test="customerType != null">
+                #{customerType,jdbcType=VARCHAR},
+            </if>
+            <if test="applyAmount != null">
+                #{applyAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="loanId != null">
+                #{loanId,jdbcType=OTHER},
+            </if>
+            <if test="homeAddress != null">
+                #{homeAddress,jdbcType=OTHER},
+            </if>
+            <if test="homePuhone != null">
+                #{homePuhone,jdbcType=OTHER},
+            </if>
+            <if test="workName != null">
+                #{workName,jdbcType=OTHER},
+            </if>
+            <if test="workAddress != null">
+                #{workAddress,jdbcType=OTHER},
+            </if>
+            <if test="workPhone != null">
+                #{workPhone,jdbcType=OTHER},
+            </if>
+            <if test="deviceType != null">
+                #{deviceType,jdbcType=VARCHAR},
+            </if>
+            <if test="imei != null">
+                #{imei,jdbcType=OTHER},
+            </if>
+            <if test="mac != null">
+                #{mac,jdbcType=OTHER},
+            </if>
+            <if test="ipAddress != null">
+                #{ipAddress,jdbcType=OTHER},
+            </if>
+            <if test="osName != null">
+                #{osName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="club.ok328.www.srv.entity.LoanApplyInfo">
+        update BH_LOAN_APPLY_INFO
+        <set>
+            <if test="name != null">
+                NAME = #{name,jdbcType=OTHER},
+            </if>
+            <if test="pid != null">
+                PID = #{pid,jdbcType=OTHER},
+            </if>
+            <if test="mobile != null">
+                MOBILE = #{mobile,jdbcType=OTHER},
+            </if>
+            <if test="queryReason != null">
+                QUERY_REASON = #{queryReason,jdbcType=VARCHAR},
+            </if>
+            <if test="guaranteeType != null">
+                GUARANTEE_Type = #{guaranteeType,jdbcType=VARCHAR},
+            </if>
+            <if test="loanPurpose != null">
+                LOAN_PURPOSE = #{loanPurpose,jdbcType=VARCHAR},
+            </if>
+            <if test="customerType != null">
+                CUSTOMER_TYPE = #{customerType,jdbcType=VARCHAR},
+            </if>
+            <if test="applyAmount != null">
+                APPLY_AMOUNT = #{applyAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="loanId != null">
+                LOAN_ID = #{loanId,jdbcType=OTHER},
+            </if>
+            <if test="homeAddress != null">
+                HOME_ADDRESS = #{homeAddress,jdbcType=OTHER},
+            </if>
+            <if test="homePuhone != null">
+                HOME_PUHONE = #{homePuhone,jdbcType=OTHER},
+            </if>
+            <if test="workName != null">
+                WORK_NAME = #{workName,jdbcType=OTHER},
+            </if>
+            <if test="workAddress != null">
+                WORK_ADDRESS = #{workAddress,jdbcType=OTHER},
+            </if>
+            <if test="workPhone != null">
+                WORK_PHONE = #{workPhone,jdbcType=OTHER},
+            </if>
+            <if test="deviceType != null">
+                DEVICE_TYPE = #{deviceType,jdbcType=VARCHAR},
+            </if>
+            <if test="imei != null">
+                IMEI = #{imei,jdbcType=OTHER},
+            </if>
+            <if test="mac != null">
+                MAC = #{mac,jdbcType=OTHER},
+            </if>
+            <if test="ipAddress != null">
+                IP_ADDRESS = #{ipAddress,jdbcType=OTHER},
+            </if>
+            <if test="osName != null">
+                OS_NAME = #{osName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where APPLY_NO = #{applyNo,jdbcType=OTHER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="club.ok328.www.srv.entity.LoanApplyInfo">
+        update BH_LOAN_APPLY_INFO
+        set NAME = #{name,jdbcType=OTHER},
+        PID = #{pid,jdbcType=OTHER},
+        MOBILE = #{mobile,jdbcType=OTHER},
+        QUERY_REASON = #{queryReason,jdbcType=VARCHAR},
+        GUARANTEE_Type = #{guaranteeType,jdbcType=VARCHAR},
+        LOAN_PURPOSE = #{loanPurpose,jdbcType=VARCHAR},
+        CUSTOMER_TYPE = #{customerType,jdbcType=VARCHAR},
+        APPLY_AMOUNT = #{applyAmount,jdbcType=DECIMAL},
+        LOAN_ID = #{loanId,jdbcType=OTHER},
+        HOME_ADDRESS = #{homeAddress,jdbcType=OTHER},
+        HOME_PUHONE = #{homePuhone,jdbcType=OTHER},
+        WORK_NAME = #{workName,jdbcType=OTHER},
+        WORK_ADDRESS = #{workAddress,jdbcType=OTHER},
+        WORK_PHONE = #{workPhone,jdbcType=OTHER},
+        DEVICE_TYPE = #{deviceType,jdbcType=VARCHAR},
+        IMEI = #{imei,jdbcType=OTHER},
+        MAC = #{mac,jdbcType=OTHER},
+        IP_ADDRESS = #{ipAddress,jdbcType=OTHER},
+        OS_NAME = #{osName,jdbcType=VARCHAR}
+        where APPLY_NO = #{applyNo,jdbcType=OTHER}
+    </update>
+</mapper>

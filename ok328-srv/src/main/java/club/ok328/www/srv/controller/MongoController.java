@@ -1,4 +1,4 @@
-package srv.controller;
+package club.ok328.www.srv.controller;
 
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
@@ -10,9 +10,9 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.web.bind.annotation.*;
-import srv.common.Result;
-import srv.common.ResultFactory;
-import srv.vo.UserInfo;
+import club.ok328.www.srv.common.Result;
+import club.ok328.www.srv.common.ResultFactory;
+import club.ok328.www.srv.vo.UserInfo;
 
 import java.util.Date;
 import java.util.List;

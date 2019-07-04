@@ -1,4 +1,4 @@
-package srv.service.impl;
+package club.ok328.www.srv.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,14 +6,14 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import srv.service.TestService;
-import srv.vo.UserInfo;
+import club.ok328.www.srv.service.CacheService;
+import club.ok328.www.srv.vo.UserInfo;
 
 import java.util.Date;
 
 @Service
-public class TestServiceImpl implements TestService {
-    private static Logger log = LoggerFactory.getLogger(TestService.class);
+public class CacheServiceImpl implements CacheService {
+    private static Logger log = LoggerFactory.getLogger(CacheService.class);
 
     @Override
     @Cacheable(cacheNames = "user", key = "#id")

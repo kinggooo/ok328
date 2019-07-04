@@ -1,8 +1,9 @@
-package srv.vo;
+package club.ok328.www.srv.vo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class UserInfo {
+public class UserInfo implements Serializable {
     private String id;
     private String name;
     private Date createTime;

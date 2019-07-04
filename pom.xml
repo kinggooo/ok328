@@ -8,7 +8,7 @@
     <artifactId>ok328</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>ok328-srv</module>
+        <module>ok328-club.ok328.www.srv</module>
     </modules>
     <packaging>pom</packaging>
 

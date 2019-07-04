@@ -1,4 +1,4 @@
-package srv.common;
+package club.ok328.www.srv.common;
 
 /**
  * @description 响应码枚举，参考 HTTP状态码的语义

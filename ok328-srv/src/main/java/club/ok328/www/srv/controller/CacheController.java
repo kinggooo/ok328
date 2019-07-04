@@ -1,16 +1,15 @@
-package srv.controller;
+package club.ok328.www.srv.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
-import srv.common.Result;
-import srv.common.ResultFactory;
-import srv.service.TestService;
-import srv.vo.UserInfo;
+import club.ok328.www.srv.common.Result;
+import club.ok328.www.srv.common.ResultFactory;
+import club.ok328.www.srv.service.CacheService;
+import club.ok328.www.srv.vo.UserInfo;
 
 @RestController
 @RequestMapping(value = "/cache")
@@ -24,26 +23,26 @@ public class CacheController {
     private StringRedisTemplate redisTemplate;
 
     @Autowired
-    private TestService testServiceImpl;
+    private CacheService cacheService;
 
     @RequestMapping(value = "/getUser/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Result getUser(@PathVariable String id) {
-        UserInfo user = testServiceImpl.getUser(id);
+        UserInfo user = cacheService.getUser(id);
         return ResultFactory.buildSuccessResult(user);
     }
 
     @RequestMapping(value = "/updateUser", method = RequestMethod.GET)
     @ResponseBody
     public Result updateUser(@RequestBody UserInfo updUser) {
-        UserInfo user = testServiceImpl.updateUser(updUser);
+        UserInfo user = cacheService.updateUser(updUser);
         return ResultFactory.buildSuccessResult(user);
     }
 
     @RequestMapping(value = "/evictUser/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Result evictUser(@PathVariable String id) {
-        testServiceImpl.evictUser(id);
+        cacheService.evictUser(id);
         return ResultFactory.buildSuccessResult(null);
     }
 }

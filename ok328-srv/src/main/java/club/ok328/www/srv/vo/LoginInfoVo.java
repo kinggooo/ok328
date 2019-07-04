@@ -1,4 +1,4 @@
-package srv.vo;
+package club.ok328.www.srv.vo;
 
 import javax.validation.constraints.NotNull;
 

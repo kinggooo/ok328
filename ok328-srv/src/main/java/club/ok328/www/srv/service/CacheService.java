@@ -1,8 +1,8 @@
-package srv.service;
+package club.ok328.www.srv.service;
 
-import srv.vo.UserInfo;
+import club.ok328.www.srv.vo.UserInfo;
 
-public interface TestService {
+public interface CacheService {
     UserInfo getUser(String id);
 
     UserInfo updateUser(UserInfo user);

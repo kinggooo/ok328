@@ -1,13 +1,13 @@
-package srv.controller;
+package club.ok328.www.srv.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import srv.common.Result;
-import srv.common.ResultFactory;
-import srv.vo.LoginInfoVo;
+import club.ok328.www.srv.common.Result;
+import club.ok328.www.srv.common.ResultFactory;
+import club.ok328.www.srv.vo.LoginInfoVo;
 
 import javax.validation.Valid;
 

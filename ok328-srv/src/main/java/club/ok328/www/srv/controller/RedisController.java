@@ -1,4 +1,4 @@
-package srv.controller;
+package club.ok328.www.srv.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
-import srv.common.Result;
-import srv.common.ResultFactory;
+import club.ok328.www.srv.common.Result;
+import club.ok328.www.srv.common.ResultFactory;
 
 @RestController
 @RequestMapping(value = "/redis")

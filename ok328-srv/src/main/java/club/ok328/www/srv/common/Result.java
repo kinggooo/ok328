@@ -1,4 +1,4 @@
-package srv.common;
+package club.ok328.www.srv.common;
 
 /**
  * @author WANGNANZHI
