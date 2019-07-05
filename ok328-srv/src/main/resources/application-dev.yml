@@ -60,8 +60,6 @@ spring:
         enabled: true
         key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAI6BZsq4PSRUCcDC1RTdYTtuNMt2cwQamnndqmT7wkwxezSoEWvZvLD2If9PjDZxLRHzgbsjjXeFkQ41MWMU/JECAwEAAQ==
 
-
-
 #showSql
 logging:
   level:
