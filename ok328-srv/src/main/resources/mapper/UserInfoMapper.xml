@@ -13,6 +13,11 @@
     <sql id="Base_Column_List">
         id, created_at, last_modified, email, first_name, last_name, username
     </sql>
+    <select id="selectByCond" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user_info
+    </select>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
         <include refid="Base_Column_List"/>

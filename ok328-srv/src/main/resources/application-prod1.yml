@@ -1,0 +1,75 @@
+server:
+  port: 9090
+#  servlet:
+#      context-path: /test
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  #type-aliases-package: com.sid.model  # 注意：对应实体类的路径
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #控制台打印sql
+
+
+#pagehelper分页插件
+pagehelper:
+  helperDialect: oracle
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+#public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAK9dX+Pm/pfKk8sBMN/u0JF8Z2muIPgvaINQQS5JNwsfI/fs+lA5P6NoMjMZf3Fl0lFIOfWOGAO9ocpZXHhQ3F8CAwEAAQ==
+
+# Spring Datasource Settings
+spring:
+  data:
+    mongodb:
+      uri: mongodb://test:nanzhi01!@148.70.47.196:27017/test
+#      uri: mongodb: //127.0.0.1:27017/test
+
+
+  #数据源配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mysql?characterEncoding=utf-8&useSSL=false&useUnicode=true
+    username: root
+    password: 123456
+#    password: ck3phKZruw5SEHFY9GFk8JKU7/J4amoQtaQxz0s1Bo0tHeEwnwLJ3CAlT+5sOmUoam5AlHEgE07UvKjn+5xWFw==
+    driver-class-name: com.mysql.jdbc.Driver
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 2.0之后新特性 不加就不会自动建表
+    #initialization-mode: always
+
+    #druid配置
+    druid:
+      initial-size: 5 #初始化连接数
+      max-active: 20 #最大连接数
+      min-idle: 5 #最小连接数
+      max-wait: 6000 #最大等待时间
+#      connect-properties: config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAI6BZsq4PSRUCcDC1RTdYTtuNMt2cwQamnndqmT7wkwxezSoEWvZvLD2If9PjDZxLRHzgbsjjXeFkQ41MWMU/JECAwEAAQ==
+      #开启Web监控
+      web-stat:
+        enabled: true
+      #开启AOP监控
+      aop-stat:
+        enabled: true
+      #开启WallFilter
+      wall:
+        enabled: true
+        throw-exception: true
+#      config:
+#        enabled: true
+#        key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAI6BZsq4PSRUCcDC1RTdYTtuNMt2cwQamnndqmT7wkwxezSoEWvZvLD2If9PjDZxLRHzgbsjjXeFkQ41MWMU/JECAwEAAQ==
+
+#showSql
+logging:
+  level:
+    club:
+      ok328:
+        www:
+          srv:
+            mapper: debug
+    org:
+      springframework:
+        data:
+          mongodb: debug
