@@ -32,7 +32,8 @@ spring:
   datasource:
     url: jdbc:oracle:thin:@172.31.71.91:1521:ORCL
     username: loan
-    password: ck3phKZruw5SEHFY9GFk8JKU7/J4amoQtaQxz0s1Bo0tHeEwnwLJ3CAlT+5sOmUoam5AlHEgE07UvKjn+5xWFw==
+    password: 123456
+#    password: ck3phKZruw5SEHFY9GFk8JKU7/J4amoQtaQxz0s1Bo0tHeEwnwLJ3CAlT+5sOmUoam5AlHEgE07UvKjn+5xWFw==
     driver-class-name: oracle.jdbc.driver.OracleDriver
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
