@@ -19,7 +19,7 @@ pagehelper:
   supportMethodsArguments: true
   params: count=countSql
 
-#public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKgZ74NKf1fVFBpRpIUHAKKe1jhrM0pE+yfBINNkn13oTjraOcv+stYYwqmHJYcB0Hs1dRnv04NjHU7ksgGn5okCAwEAAQ==
+public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKgZ74NKf1fVFBpRpIUHAKKe1jhrM0pE+yfBINNkn13oTjraOcv+stYYwqmHJYcB0Hs1dRnv04NjHU7ksgGn5okCAwEAAQ==
 
 # Spring Datasource Settings
 spring:
@@ -60,7 +60,7 @@ spring:
         throw-exception: true
       config:
         enabled: true
-        key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKgZ74NKf1fVFBpRpIUHAKKe1jhrM0pE+yfBINNkn13oTjraOcv+stYYwqmHJYcB0Hs1dRnv04NjHU7ksgGn5okCAwEAAQ==
+        key: ${public-key}
 
 #showSql
 logging:
