@@ -4,65 +4,65 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "spring.datasource.druid")
 public class DruidProp {
-    private String initialSize;
-    private String maxActive;
-    private String minIdle;
-    private String maxWait;
-    private String timeBetweenEvictionRunsMillis;
-    private String minEvictableIdleTimeMillis;
+    private int initialSize;
+    private int maxActive;
+    private int minIdle;
+    private long maxWait;
+    private long timeBetweenEvictionRunsMillis;
+    private long minEvictableIdleTimeMillis;
     private String validationQuery;
-    private String testWhileIdle;
-    private String testOnBorrow;
-    private String testOnReturn;
-    private String poolPreparedStatements;
-    private String maxPoolPreparedStatementPerConnectionSize;
+    private boolean testWhileIdle;
+    private boolean testOnBorrow;
+    private boolean testOnReturn;
+    private boolean poolPreparedStatements;
+    private int maxPoolPreparedStatementPerConnectionSize;
     private String connectProperties;
 
-    public String getInitialSize() {
+    public int getInitialSize() {
         return initialSize;
     }
 
-    public void setInitialSize(String initialSize) {
+    public void setInitialSize(int initialSize) {
         this.initialSize = initialSize;
     }
 
-    public String getMaxActive() {
+    public int getMaxActive() {
         return maxActive;
     }
 
-    public void setMaxActive(String maxActive) {
+    public void setMaxActive(int maxActive) {
         this.maxActive = maxActive;
     }
 
-    public String getMinIdle() {
+    public int getMinIdle() {
         return minIdle;
     }
 
-    public void setMinIdle(String minIdle) {
+    public void setMinIdle(int minIdle) {
         this.minIdle = minIdle;
     }
 
-    public String getMaxWait() {
+    public long getMaxWait() {
         return maxWait;
     }
 
-    public void setMaxWait(String maxWait) {
+    public void setMaxWait(long maxWait) {
         this.maxWait = maxWait;
     }
 
-    public String getTimeBetweenEvictionRunsMillis() {
+    public long getTimeBetweenEvictionRunsMillis() {
         return timeBetweenEvictionRunsMillis;
     }
 
-    public void setTimeBetweenEvictionRunsMillis(String timeBetweenEvictionRunsMillis) {
+    public void setTimeBetweenEvictionRunsMillis(long timeBetweenEvictionRunsMillis) {
         this.timeBetweenEvictionRunsMillis = timeBetweenEvictionRunsMillis;
     }
 
-    public String getMinEvictableIdleTimeMillis() {
+    public long getMinEvictableIdleTimeMillis() {
         return minEvictableIdleTimeMillis;
     }
 
-    public void setMinEvictableIdleTimeMillis(String minEvictableIdleTimeMillis) {
+    public void setMinEvictableIdleTimeMillis(long minEvictableIdleTimeMillis) {
         this.minEvictableIdleTimeMillis = minEvictableIdleTimeMillis;
     }
 
@@ -74,43 +74,43 @@ public class DruidProp {
         this.validationQuery = validationQuery;
     }
 
-    public String getTestWhileIdle() {
+    public boolean isTestWhileIdle() {
         return testWhileIdle;
     }
 
-    public void setTestWhileIdle(String testWhileIdle) {
+    public void setTestWhileIdle(boolean testWhileIdle) {
         this.testWhileIdle = testWhileIdle;
     }
 
-    public String getTestOnBorrow() {
+    public boolean isTestOnBorrow() {
         return testOnBorrow;
     }
 
-    public void setTestOnBorrow(String testOnBorrow) {
+    public void setTestOnBorrow(boolean testOnBorrow) {
         this.testOnBorrow = testOnBorrow;
     }
 
-    public String getTestOnReturn() {
+    public boolean isTestOnReturn() {
         return testOnReturn;
     }
 
-    public void setTestOnReturn(String testOnReturn) {
+    public void setTestOnReturn(boolean testOnReturn) {
         this.testOnReturn = testOnReturn;
     }
 
-    public String getPoolPreparedStatements() {
+    public boolean isPoolPreparedStatements() {
         return poolPreparedStatements;
     }
 
-    public void setPoolPreparedStatements(String poolPreparedStatements) {
+    public void setPoolPreparedStatements(boolean poolPreparedStatements) {
         this.poolPreparedStatements = poolPreparedStatements;
     }
 
-    public String getMaxPoolPreparedStatementPerConnectionSize() {
+    public int getMaxPoolPreparedStatementPerConnectionSize() {
         return maxPoolPreparedStatementPerConnectionSize;
     }
 
-    public void setMaxPoolPreparedStatementPerConnectionSize(String maxPoolPreparedStatementPerConnectionSize) {
+    public void setMaxPoolPreparedStatementPerConnectionSize(int maxPoolPreparedStatementPerConnectionSize) {
         this.maxPoolPreparedStatementPerConnectionSize = maxPoolPreparedStatementPerConnectionSize;
     }
 

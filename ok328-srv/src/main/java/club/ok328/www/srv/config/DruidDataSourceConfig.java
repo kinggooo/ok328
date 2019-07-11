@@ -12,6 +12,7 @@ import org.springframework.core.env.Environment;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
+import java.util.Properties;
 
 @Configuration
 @EnableConfigurationProperties({DruidProp.class, DataSourceProp.class})
@@ -50,6 +51,24 @@ public class DruidDataSourceConfig {
         dataSource.setDriverClassName(dataSourceProp.getDriverClassName());
         dataSource.setUsername(dataSourceProp.getUsername());
         dataSource.setPassword(dataSourceProp.getPassword());
+
+        dataSource.setInitialSize(druidProp.getInitialSize());
+        dataSource.setMaxActive(druidProp.getMaxActive());
+        dataSource.setMinIdle(druidProp.getMinIdle());
+        dataSource.setMaxWait(druidProp.getMaxWait());
+        String connectPropStr = druidProp.getConnectProperties();
+        if (connectPropStr != null && !"".equals(connectPropStr)) {
+            Properties connectProp = new Properties();
+            String[] propList = connectPropStr.split(";");
+            for (String prop : propList) {
+                String[] obj = prop.split("=");
+                String key = obj[0];
+                String val = obj[1];
+                connectProp.put(key, val);
+            }
+            dataSource.setConnectProperties(connectProp);
+        }
+
         dataSource.setStatLogger(new StatLogger());
         return dataSource;
     }
