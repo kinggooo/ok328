@@ -44,30 +44,23 @@ public class DruidDataSourceConfig {
     @Bean(name = "dataSource", initMethod = "init", destroyMethod = "close")
 //    @Bean(name = "dataSource")
     @Primary // 在同样的DataSource中，首先使用被标注的DataSource
-//    @ConfigurationProperties(prefix = "spring.datasource")
+    @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource druidDataSource() throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl(dataSourceProp.getUrl());
-        dataSource.setDriverClassName(dataSourceProp.getDriverClassName());
-        dataSource.setUsername(dataSourceProp.getUsername());
-        dataSource.setPassword(dataSourceProp.getPassword());
+//        dataSource.setUrl(dataSourceProp.getUrl());
+//        dataSource.setDriverClassName(dataSourceProp.getDriverClassName());
+//        dataSource.setUsername(dataSourceProp.getUsername());
+//        dataSource.setPassword(dataSourceProp.getPassword());
+//
+//        dataSource.setInitialSize(druidProp.getInitialSize());
+//        dataSource.setMaxActive(druidProp.getMaxActive());
+//        dataSource.setMinIdle(druidProp.getMinIdle());
+//        dataSource.setMaxWait(druidProp.getMaxWait());
+//        dataSource.setFilters("config");
+//
+//        String connectPropStr = druidProp.getConnectionProperties();
+//        dataSource.setConnectionProperties(connectPropStr);
 
-        dataSource.setInitialSize(druidProp.getInitialSize());
-        dataSource.setMaxActive(druidProp.getMaxActive());
-        dataSource.setMinIdle(druidProp.getMinIdle());
-        dataSource.setMaxWait(druidProp.getMaxWait());
-        String connectPropStr = druidProp.getConnectProperties();
-        if (connectPropStr != null && !"".equals(connectPropStr)) {
-            Properties connectProp = new Properties();
-            String[] propList = connectPropStr.split(";");
-            for (String prop : propList) {
-                String[] obj = prop.split("=");
-                String key = obj[0];
-                String val = obj[1];
-                connectProp.put(key, val);
-            }
-            dataSource.setConnectProperties(connectProp);
-        }
 
         dataSource.setStatLogger(new StatLogger());
         return dataSource;

@@ -16,7 +16,7 @@ public class DruidProp {
     private boolean testOnReturn;
     private boolean poolPreparedStatements;
     private int maxPoolPreparedStatementPerConnectionSize;
-    private String connectProperties;
+    private String connectionProperties;
 
     public int getInitialSize() {
         return initialSize;
@@ -114,11 +114,11 @@ public class DruidProp {
         this.maxPoolPreparedStatementPerConnectionSize = maxPoolPreparedStatementPerConnectionSize;
     }
 
-    public String getConnectProperties() {
-        return connectProperties;
+    public String getConnectionProperties() {
+        return connectionProperties;
     }
 
-    public void setConnectProperties(String connectProperties) {
-        this.connectProperties = connectProperties;
+    public void setConnectionProperties(String connectionProperties) {
+        this.connectionProperties = connectionProperties;
     }
 }
