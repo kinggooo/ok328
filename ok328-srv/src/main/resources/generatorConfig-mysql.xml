@@ -39,7 +39,7 @@
         </javaTypeResolver>
 
         <!--生成实体类 指定包名 以及生成的地址 （可以自定义地址，但是路径不存在不会自动创建 使用Maven生成在target目录下，会自动创建） -->
-        <javaModelGenerator targetPackage="club.ok328.www.srv.entity"
+        <javaModelGenerator targetPackage="club.ok328.wnz.srv.entity"
                             targetProject="/Users/wangnz/Documents/mydev/IdeaProjects/ok328/ok328-srv/src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
@@ -51,7 +51,7 @@
         </sqlMapGenerator>
         <!--生成Dao文件 可以配置 type="XMLMAPPER"生成xml的dao实现 context id="DB2Tables" 修改targetRuntime="MyBatis3" -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="club.ok328.www.srv.mapper"
+                             targetPackage="club.ok328.wnz.srv.mapper"
                              targetProject="/Users/wangnz/Documents/mydev/IdeaProjects/ok328/ok328-srv/src/main/java">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>

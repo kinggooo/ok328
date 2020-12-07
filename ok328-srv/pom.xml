@@ -3,7 +3,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>club.ok328.www</groupId>
+        <groupId>club.ok328.wnz</groupId>
         <artifactId>ok328</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -11,7 +11,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>ok328-srv</artifactId>
     <name>ok328-srv</name>
-    <url>http://www.example.com</url>
 
     <dependencies>
         <dependency>
@@ -46,12 +45,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>

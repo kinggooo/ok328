@@ -44,7 +44,6 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
     #initialization-mode: always # 2.0之后新特性 不加就不会自动建表
-
     #druid settings
 #    druid:
     initial-size: 1 #初始化连接数
