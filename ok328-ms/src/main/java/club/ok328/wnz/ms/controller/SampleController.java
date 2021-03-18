@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/demo")
 public class SampleController {
 
+
     @RequestMapping("/thymeleaf")
     public String thymeleaf(Model model) {
         model.addAttribute("name", "test");
